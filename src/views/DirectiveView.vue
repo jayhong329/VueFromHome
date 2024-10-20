@@ -13,6 +13,8 @@ import { ref } from 'vue';
     ])
 
     const selectedOpiton = ref("100")
+
+    const user = ref({"name":"Jay", "age":30, "email":"Jay30@gmail.com"})
     
 </script>
 
@@ -39,12 +41,24 @@ import { ref } from 'vue';
             <p>isLoggedIn 為 false</p>
             <button @click="isLoggedIn=! isLoggedIn">登入</button>
         </div>
-        
+
         <!-- v-for   (1.讀取陣列)  region =  {"code": "100","name": "中正區"}  -->
         <select v-model="selectedOpiton">
             <option v-for="(region,index) in regions" :value="region.code" :key="region.code" >{{ index }}{{ region.name }}</option>
         </select>
         <span>{{ selectedOpiton }}</span>
+        <hr>
+        <!-- v-for (2.讀取物件)  -->
+         <ul>
+         <!-- {key: value} -->
+            <li v-for="(value, key) in user">{{ key }}: {{ value }}</li>
+         </ul>
+
+         <!-- v-for (3.產生數字範圍)  -->
+        <ul class="pagination pagination-lg">
+            <li class="page-item" v-for="i in 8"><a class="page-link" href="#">{{ i }}</a></li>
+        </ul>
+
     </div>
 </template>
 
