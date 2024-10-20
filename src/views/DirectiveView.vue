@@ -15,6 +15,9 @@ import { ref } from 'vue';
     const selectedOpiton = ref("100")
 
     const user = ref({"name":"Jay", "age":30, "email":"Jay30@gmail.com"})
+
+    const bgColor = ref("yello")
+    const radius = ref("25px")
     
 </script>
 
@@ -41,13 +44,13 @@ import { ref } from 'vue';
             <p>isLoggedIn 為 false</p>
             <button @click="isLoggedIn=! isLoggedIn">登入</button>
         </div>
-
+        <hr>
         <!-- v-for   (1.讀取陣列)  region =  {"code": "100","name": "中正區"}  -->
         <select v-model="selectedOpiton">
             <option v-for="(region,index) in regions" :value="region.code" :key="region.code" >{{ index }}{{ region.name }}</option>
         </select>
         <span>{{ selectedOpiton }}</span>
-        <hr>
+        
         <!-- v-for (2.讀取物件)  -->
          <ul>
          <!-- {key: value} -->
@@ -58,10 +61,24 @@ import { ref } from 'vue';
         <ul class="pagination pagination-lg">
             <li class="page-item" v-for="i in 8"><a class="page-link" href="#">{{ i }}</a></li>
         </ul>
+        <hr>
+        <input type="color" v-model="bgColor">
+        <div style="height: 200px;width: 200px;border: 1px solid grey;"
+        :style="{backgroundColor: bgColor, 'border-radius':radius}"
+        ></div>
+
+        <div style="height: 100px;width: 100px" 
+        :class="{active:true, 'text-danger':true}"></div>
 
     </div>
 </template>
 
 <style lang="css" scoped>
+.active{
+    border: 1px solid rgb(127, 47, 255);;
+}
+.text-danger{
+    background-color: pink;
+}
 
 </style>
