@@ -31,12 +31,22 @@
                 <a class="nav-link" @click="setActive(index)" :class="{active:activeIndex === index}">{{ tab.name }}</a>
             </li>
         </ul>
-        <KeepAlive>
-            <component :is="activeTab"></component>
-        </KeepAlive>
+        <Transition name="move">
+            <KeepAlive>
+                <component :is="activeTab"></component>
+            </KeepAlive>
+        </Transition>
     </div>
 </template>
 
 <style lang="css" scoped>
-
+.move-enter-active,
+.move-leave-active{
+    transition: all 2s;
+}
+.move-enter-from,
+.move-leave-to{
+    opacity: 0;
+    transform: translateX(50px);
+}
 </style>

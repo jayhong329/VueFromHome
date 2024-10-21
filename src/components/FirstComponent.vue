@@ -18,9 +18,9 @@ const show = ref(true)
 
 <template>
     <button @click="show =!show">Toggle</button>
-    <Transition>
+    <!-- <Transition> -->
         <h2 id="theH" v-if="show">My First Component</h2>
-    </Transition>
+    <!-- </Transition> -->
 
 </template>
 
