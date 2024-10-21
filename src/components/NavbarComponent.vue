@@ -27,6 +27,9 @@
             <RouterLink :to="{ name: 'Directive' }" class="nav-link"  activeClass="active">DirectiveDemo</RouterLink>
         </li>
         <li class="nav-item">
+            <RouterLink :to="{ name: 'todos' }" class="nav-link"  activeClass="active">待做事項</RouterLink>
+        </li>
+        <li class="nav-item">
             <RouterLink :to="{ name: 'Member', params:{id:'20'} }" class="nav-link"  activeClass="active">會員中心20</RouterLink>
         </li>
       </ul>
