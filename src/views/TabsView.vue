@@ -31,7 +31,9 @@
                 <a class="nav-link" @click="setActive(index)" :class="{active:activeIndex === index}">{{ tab.name }}</a>
             </li>
         </ul>
-        <component :is="activeTab"></component>
+        <KeepAlive>
+            <component :is="activeTab"></component>
+        </KeepAlive>
     </div>
 </template>
 

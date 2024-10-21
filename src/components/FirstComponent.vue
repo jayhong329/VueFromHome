@@ -1,5 +1,5 @@
 <script setup >
-import { onBeforeMount, onMounted } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 
 onBeforeMount(()=>{
     console.log('onBeforeMount')
@@ -10,16 +10,32 @@ onMounted(()=>{
     const myH = document.querySelector('#theH')
     console.log(myH.textContent)
 })
+
+
+const show = ref(true)
 </script>
 
 
 <template>
-    <h2 id="theH">My First Component</h2>
+    <button @click="show =!show">Toggle</button>
+    <Transition>
+        <h2 id="theH" v-if="show">My First Component</h2>
+    </Transition>
+
 </template>
 
 <style scoped>
 h2{
     color: rgb(27, 156, 96);
+}
+.v-enter-active,
+.v-leave-active{
+    transition: all 2s;
+}
+.v-enter-from,
+.v-leave-to{
+    opacity: 0;
+    transform: translateX(50px);
 }
 </style>
 
