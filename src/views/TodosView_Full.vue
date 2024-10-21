@@ -1,7 +1,7 @@
 <script setup>
-import TodoAdd from '@/components/TodoAdd.vue';
 import { computed, ref } from 'vue';
 
+const newTodo = ref("")
 const todos = ref(
     [
         { "id": "m21uwqfprb0ncx4", "title": "學習vue", "completed": true },
@@ -14,11 +14,16 @@ const todos = ref(
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 
 // 新增待做事項
-const addTodoHandler = todo =>{
-    todos.value.push({ "id": uniqueId(), "title": todo, "completed": false })
+const enterHandler = () =>{
+    todos.value.push({ "id": uniqueId(), "title": newTodo.value, "completed": false })
+    newTodo.value=""
+    // console.log(newTodo.value)
 }
 
-
+// 清除輸入的資料
+const deleteHandler = () =>{
+    newTodo.value=""
+}
 
 // 刪除todo  splice() --移除或新增陣列中的資料  indexOf() --判斷陣列中是否包含某個值
 const removeTodo = todo =>{
@@ -54,7 +59,7 @@ const removeCompleted = () =>{
         <div class="col-3"> </div>
         <div class="col-6">
             <h3>Todos Page</h3>
-            <TodoAdd @addTodo="addTodoHandler"></TodoAdd>
+            <input v-model="newTodo" @keyup.enter="enterHandler" @keyup.delete="deleteHandler" type="text" class="form-control" autofocus autocomplete="off" placeholder="想要做甚麼?">
             <ul class="list-group mt-3">
                 <li  v-for="todo in todos" :key="todo.id" class="list-group-item">
                     <div class="d-flex justify-content-between">
