@@ -16,9 +16,11 @@ import { ref } from 'vue';
 
     const user = ref({"name":"Jay", "age":30, "email":"Jay30@gmail.com"})
 
-    const bgColor = ref("yello")
+    const bgColor = ref("silver")
     const radius = ref("25px")
     
+
+    const items = ref(["a"])
 </script>
 
 <template>
@@ -33,7 +35,7 @@ import { ref } from 'vue';
         <div v-html="iSpan"></div>
 
         <!-- v-show  (條件判斷) -->
-        <img src="/121890263.png" alt="loading...." v-show="isLoading">
+        <img src="/121890263.png" style="width: auto; height: 100px;" alt="loading...." v-show="isLoading">
 
         <!--   v-if   (條件判斷) -->
         <div v-if="isLoggedIn">
@@ -69,8 +71,16 @@ import { ref } from 'vue';
 
         <div style="height: 100px;width: 100px" 
         :class="{active:true, 'text-danger':true}"></div>
+        <hr>
+
+        <input type="checkbox" value="a" v-model="items">Item1
+        <input type="checkbox" value="b" v-model="items">Item2
+        <input type="checkbox" value="c" v-model="items">Item3
+        <input type="checkbox" value="d" v-model="items">Item4
+        <span>選取的值{{ items }}</span>
 
     </div>
+    <hr>
 </template>
 
 <style lang="css" scoped>
@@ -80,5 +90,4 @@ import { ref } from 'vue';
 .text-danger{
     background-color: pink;
 }
-
 </style>
