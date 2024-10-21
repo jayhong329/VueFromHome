@@ -78,10 +78,10 @@ const validate = () =>{
 
     validity.value.isValid = validity.value.nameRequired && validity.value.pwdRequired && validity.value.emailRequired && validity.value.pwdComfirm && validity.value.emailFormat 
 
-    // ajax 驗證成功
+    // 如驗證成功  將資料透過"ajax fetch() " 送到後端API
     if(validity.value.isValid){
         alert("送出成功")
     }
-    console.log(userData.value)
+    // console.log(userData.value)
 }
 </script>
