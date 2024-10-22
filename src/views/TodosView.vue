@@ -65,7 +65,10 @@ const removeCompletedHandler = () =>{
 // watchEffect 被觸發就會將新增.修改.刪除的資料寫進 localStorage
 watchEffect (() =>{
     localStorage.setItem("todos", JSON.stringify(todos.value))
+    
     const activeTodos = todos.value.filter(todo => !todo.completed)
+    
+    // 重新計算未完成工作事項傳給 pinia的方法
     todoStore.qtyChange(activeTodos.length)
 })
 
