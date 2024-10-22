@@ -11,6 +11,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 // import BmiDemo from "./components/BmiDemo.vue";
 // import MemberView from "./views/MemberView.vue";
 import NavbarComponent from "./components/NavbarComponent.vue";
+import FancyButton from "./components/FancyButton.vue";
 
 
 const formatTime = today =>{
@@ -75,6 +76,17 @@ watchEffect(() =>{
          <router-link :to="{ name: 'About'}" activeClass="active">關於我們</router-link> |
          <router-link :to="{ name: 'Contact'}" activeClass="active">聯絡我們</router-link> |
          <router-link :to="{ name: 'Member', params:{id:'20'}}" activeClass="active">會員中心20</router-link> | -->
+        <hr />
+        <FancyButton>
+            <i class="bi bi-activity"></i>
+            <span class="mx-1">心電圖</span>
+            <i class="bi bi-activity"></i>
+        </FancyButton>
+        <FancyButton>
+            <i class="bi bi-alarm-fill"></i>
+            <span class="mx-1">鬧鐘</span>
+            <i class="bi bi-alarm"></i>
+        </FancyButton>
         <hr />
         <RouterView></RouterView>
 
