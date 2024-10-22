@@ -1,15 +1,24 @@
 <script setup>
 import TodoAdd from '@/components/TodoAdd.vue';
 import TodoFooter from '@/components/TodoFooter.vue';
-import { computed, ref } from 'vue';
+import { computed, ref, watchEffect } from 'vue';
 
-const todos = ref(
-    [
-        { "id": "m21uwqfprb0ncx4", "title": "學習vue", "completed": true },
-        { "id": "m21w6x73hw2tvrc", "title": "機器學習", "completed": false },
-        { "id": "m21w6x73hw2abcd", "title": "深度學習", "completed": false },
-    ]
-)
+// const todos = ref(
+//     [
+//         { "id": "m21uwqfprb0ncx4", "title": "學習vue", "completed": true },
+//         { "id": "m21w6x73hw2tvrc", "title": "機器學習", "completed": false },
+//         { "id": "m21w6x73hw2abcd", "title": "深度學習", "completed": false },
+//     ]
+// )
+
+// 資料寫入 localStorage
+// localStorage.setItem("todos", JSON.stringify(todos.value))
+
+// 資料讀取 localStorage
+const todos = ref(JSON.parse(localStorage.getItem("todos")))
+//  console.log(todos)
+
+// 寫回localStorage的程式 ????
 
 //取得唯一值
 const uniqueId = () => Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
@@ -49,6 +58,11 @@ const removeCompletedHandler = () =>{
     }
 
 }
+
+// watchEffect 被觸發就會將新增.修改.刪除的資料寫進 localStorage
+watchEffect (() =>{
+    localStorage.setItem("todos", JSON.stringify(todos.value))
+})
 
 </script>
 <template>
