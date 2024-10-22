@@ -2,6 +2,9 @@
 import TodoAdd from '@/components/TodoAdd.vue';
 import TodoFooter from '@/components/TodoFooter.vue';
 import { computed, ref, watchEffect } from 'vue';
+import { useTodoStore } from '@/stores/todo';
+
+const todoStore = useTodoStore()
 
 // const todos = ref(
 //     [
@@ -62,6 +65,8 @@ const removeCompletedHandler = () =>{
 // watchEffect 被觸發就會將新增.修改.刪除的資料寫進 localStorage
 watchEffect (() =>{
     localStorage.setItem("todos", JSON.stringify(todos.value))
+    const activeTodos = todos.value.filter(todo => !todo.completed)
+    todoStore.qtyChange(activeTodos.length)
 })
 
 </script>
