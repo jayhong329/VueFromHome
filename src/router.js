@@ -11,6 +11,7 @@ import TodosView from "./views/TodosView.vue";
 import RegisterView from "./views/RegisterView.vue";
 import LoginView from "./views/LoginView.vue";
 import TabsView from "./views/TabsView.vue";
+import CategoryCRUD from "./views/CategoryCRUD.vue";
 
 
 // 路由設定 path 比對 URL ，比對成功就載入對應的組件
@@ -59,16 +60,22 @@ const routes = [
         props:true
     },
     {
+        // http://localhost:5173/categories  => 載入 CategoryCRUD Conponent
+        path:'/categories', 
+        component:CategoryCRUD, 
+        name:"Categories",
+    },
+    {
         // http://localhost:5173/tabs  => 載入 TabsView Conponent
         path:'/tabs', 
         component:TabsView, 
-        name:"tabs",
+        name:"Tabs",
     },
     {
         //http://localhost:5173/todos  => 載入 TodosView Component
         path:'/todos',
         component:TodosView,
-        name:'todos'
+        name:'Todos'
     },
     {
         //http://localhost:5173/register  => 載入 RegisterView Component

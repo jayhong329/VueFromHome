@@ -28,10 +28,13 @@
             <RouterLink :to="{ name: 'Directive' }" class="nav-link"  activeClass="active">DirectiveDemo</RouterLink>
         </li>
         <li class="nav-item">
-            <RouterLink :to="{ name: 'todos' }" class="nav-link"  activeClass="active">待做事項</RouterLink>
+            <RouterLink :to="{ name: 'Todos' }" class="nav-link"  activeClass="active">待做事項</RouterLink>
         </li>
         <li class="nav-item">
-            <RouterLink :to="{ name: 'tabs' }" class="nav-link"  activeClass="active">Tabs</RouterLink>
+            <RouterLink :to="{ name: 'Categories' }" class="nav-link"  activeClass="active">分類管理</RouterLink>
+        </li>
+        <li class="nav-item">
+            <RouterLink :to="{ name: 'Tabs' }" class="nav-link"  activeClass="active">Tabs</RouterLink>
         </li>
         <li class="nav-item">
             <RouterLink :to="{ name: 'Member', params:{id:'20'} }" class="nav-link"  activeClass="active">會員中心20</RouterLink>
