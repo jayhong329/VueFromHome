@@ -9,7 +9,7 @@ import { ref } from 'vue';
         categoryid:0,
         categoryname:""
     })
-
+    // 串接API - 透過 GET 讀取資料
     const loadCategories = async () =>{
         const response = await fetch(API_URL)
         const datas = await response.json()
@@ -32,9 +32,21 @@ import { ref } from 'vue';
         }else{
             alert("新增失敗")
         }
-
-
     }
+
+    // 串接API - 透過 delete 刪除資料
+    const removeCategory = async(category) =>{
+        // console.log(category)
+        const response = await fetch(`${API_URL}${category.categoryid}/`,{
+            method:"DELETE"
+        })
+        if(response.ok){
+            loadCategories()
+        // const datas = await response.json()
+        // console.log(datas)
+        }
+    }
+
     // 清除 新增欄位資料
     const clearCategory = () =>{
         category.value = {
@@ -56,7 +68,7 @@ import { ref } from 'vue';
    {{ category.categoryname }}
    <div>
     <span class="badge text-bg-primary rounded-pill m-1"><i class="bi bi-pencil-square"></i></span>
-    <span class="badge text-bg-danger rounded-pill m-1"><i class="bi bi-trash-fill"></i></span>
+    <span @click="removeCategory(category)" class="badge text-bg-danger rounded-pill m-1"><i class="bi bi-trash-fill"></i></span>
    </div>
   </li>
  
