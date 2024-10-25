@@ -34,6 +34,9 @@
             <RouterLink :to="{ name: 'Categories' }" class="nav-link"  activeClass="active">分類管理</RouterLink>
         </li>
         <li class="nav-item">
+            <RouterLink :to="{ name: 'Spots' }" class="nav-link"  activeClass="active">景點資料</RouterLink>
+        </li>
+        <li class="nav-item">
             <RouterLink :to="{ name: 'Tabs' }" class="nav-link"  activeClass="active">Tabs</RouterLink>
         </li>
         <li class="nav-item">

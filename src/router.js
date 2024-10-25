@@ -12,6 +12,7 @@ import RegisterView from "./views/RegisterView.vue";
 import LoginView from "./views/LoginView.vue";
 import TabsView from "./views/TabsView.vue";
 import CategoryCRUD from "./views/CategoryCRUD.vue";
+import SpotsView from "./views/SpotsView.vue";
 
 
 // 路由設定 path 比對 URL ，比對成功就載入對應的組件
@@ -64,6 +65,12 @@ const routes = [
         path:'/categories', 
         component:CategoryCRUD, 
         name:"Categories",
+    },
+    {
+        // http://localhost:5173/spots  => 載入 SpotsView Conponent
+        path:'/spots', 
+        component:SpotsView, 
+        name:"Spots",
     },
     {
         // http://localhost:5173/tabs  => 載入 TabsView Conponent
